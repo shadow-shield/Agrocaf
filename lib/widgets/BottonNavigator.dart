@@ -1,6 +1,7 @@
+import 'package:agrocaf/pages/Configuracion/Configuraciom.dart';
 import 'package:agrocaf/pages/Pagos/Pagos.dart';
 import 'package:agrocaf/pages/Temporadas/Temporadas.dart';
-import 'package:agrocaf/pages/operador/home_operador.dart';
+import 'package:agrocaf/pages/Apartados_Operador/home_operador.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +19,7 @@ class BotonNavi extends StatelessWidget {
   }
 
   void _Configuracion(BuildContext context) {
-    Get.to(Temporada());
+    Get.to(Configuracion());
   }
 
   @override
@@ -36,10 +37,10 @@ class BotonNavi extends StatelessWidget {
             _Pagos(context);
             break;
           case 2:
-            _Temporada(context); // Cambié a _Temporada en lugar de _Pagos
+            _Temporada(context); 
             break;
           case 3:
-            _Configuracion(context); // Cambié a _Configuracion en lugar de _Pagos
+            _Configuracion(context); 
             break;
         }
       },

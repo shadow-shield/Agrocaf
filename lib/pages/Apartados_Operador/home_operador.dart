@@ -2,7 +2,7 @@
 import 'package:auth_2024/pages/page2.dart';
 import 'package:auth_2024/pages/page4.dart';*/
 import 'package:agrocaf/controllers/recolector_controller.dart';
-import 'package:agrocaf/pages/operador/registro_pesada_operador.dart';
+import 'package:agrocaf/pages/Apartados_Operador/registro_pesada_operador.dart';
 import 'package:agrocaf/widgets/BottonNavigator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

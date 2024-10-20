@@ -1,6 +1,12 @@
+import 'package:agrocaf/Apartados_admin/Abonos.dart';
+import 'package:agrocaf/Apartados_admin/Klio.dart';
+import 'package:agrocaf/Apartados_admin/Lotes.dart';
+import 'package:agrocaf/Apartados_admin/Pesadas.dart';
+import 'package:agrocaf/Apartados_admin/Recolectores.dart';
+import 'package:agrocaf/Apartados_admin/Reportes.dart';
 import 'package:agrocaf/firebase_options.dart';
+import 'package:agrocaf/pages/Apartados_Operador/Operador_Recolectores.dart';
 import 'package:agrocaf/pages/Login/login_page.dart';
-
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -47,20 +53,21 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: LoginPage(),
-      initialRoute: '/login',
-       getPages: [
-       
-         GetPage(page: () => LoginPage(), name: '/login'),
-        // GetPage(page: () => ProfilePage(), name: 'profile'),
-        // GetPage(page: () => SignupPage(), name:'signup'),
-        // GetPage(page: () => ResetPasswordPage(), name:'reset_password'),
-        // GetPage(page: () => ChangePasswordPage(), name: 'change_password'),
-        // GetPage(page: () => LogoutPage(), name: 'logout'),
-        // GetPage(page: () => SplashPage(), name:'splash'),
-        // GetPage(page: () => ForgotPasswordPage(), name: 'forgot_password'),
-        // GetPage(page: () => VerifyEmailPage(), name:'verify_email'),
-        // GetPage(page: () => TermsAndConditionsPage(), name: 'terms_and_
-      ], 
+      initialRoute: '/',
+      getPages: [
+        GetPage(page: () => LoginPage(), name: '/'),
+        GetPage(page: () => const Apartado_Operador(), name: '/apartado_ope'),
+        GetPage(page: () => const Admin_Abonos(), name: '/apartado_abono'),
+        GetPage(page: () => const Admin_Kilo(), name: '/apartado_kilo'),
+        GetPage(page: () => const Admin_Lotes(), name: '/apartado_lotes'),
+        GetPage(page: () => const Admin_Pesadas(), name: '/apartado_pesadas'),
+        GetPage(
+            page: () => const Admin_recolec(),
+            name: '/apartado_recole'), 
+        GetPage(
+            page: () => const Admin_Reportes(),
+            name: '/apartado_report'), 
+      ],
     );
   }
 }

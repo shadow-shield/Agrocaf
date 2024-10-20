@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 
 class Info extends StatefulWidget {
-  const Info({super.key});
+  final String Texto;
+  final String cargo; // Añadido: parámetro para el valor del kilo
+
+  // Constructor que recibe el valor del kilo
+  Info({required this.Texto, required this.cargo});
 
   @override
   _InfoState createState() => _InfoState();
 }
 
 class _InfoState extends State<Info> {
-  // Puedes agregar variables de estado aquí si es necesario
-  String valorDelKilo = "Valor del Kilo --------"; // Ejemplo de estado
+  late String valorDelKilo; // Variable para almacenar el valor del kilo
+
+  @override
+  void initState() {
+    super.initState();
+    valorDelKilo = widget.Texto; // Inicializa el valor del kilo
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +43,7 @@ class _InfoState extends State<Info> {
                 Container(
                   padding: EdgeInsets.all(16),
                   child: Text(
-                    'Agrocaf\nOperador',
+                    'Agrocaf\n ${widget.cargo}',
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                           color: Color.fromRGBO(255, 255, 255, 0.965),
                           fontWeight: FontWeight.bold,

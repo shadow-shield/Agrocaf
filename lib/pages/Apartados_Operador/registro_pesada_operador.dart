@@ -22,7 +22,7 @@ class RegistroPesadaOperador extends StatelessWidget {
             child: Column(
               children: [
                 // Información general (Logo, título)
-                Info(),
+                Info(Texto: 'Valor del Kilo',cargo: 'Admin',),
 
                 SizedBox(height: 20),
 

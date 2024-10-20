@@ -1,4 +1,5 @@
 import 'package:agrocaf/informacion/info.dart';
+import 'package:agrocaf/widgets/BottonNavigator.dart';
 import 'package:flutter/material.dart';
 
 class Temporada extends StatefulWidget {
@@ -12,7 +13,10 @@ class _nameState extends State<Temporada> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BotonNavi(),
       appBar: AppBar(
+        
+        
         title: Text('Temporada'),
         
       ),
@@ -20,7 +24,7 @@ class _nameState extends State<Temporada> {
         child: SafeArea(
             child: Column(
           children: [
-            Info(),
+            Info(Texto: 'Temporada',cargo: '',),
           ],
         )),
       ),
