@@ -1,0 +1,66 @@
+import 'package:agrocaf/firebase_options.dart';
+import 'package:agrocaf/pages/Login/login_page.dart';
+
+
+import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+
+void main() async {
+  await GetStorage.init();
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Inicializa Firebase dependiendo de si es web o no
+  // if (GetPlatform.isWeb) {
+  //   await Firebase.initializeApp(
+  //     options: const FirebaseOptions(
+  //         apiKey: "AIzaSyCiX67MfBCHQSclhS84z61oS9GGB84l4GY",
+  //         authDomain: "movil-2024-c121b.firebaseapp.com",
+  //         projectId: "movil-2024-c121b",
+  //         storageBucket: "movil-2024-c121b.appspot.com",
+  //         messagingSenderId: "205478674110",
+  //         appId: "1:205478674110:web:f1d7582c7c1b34056668ef"),
+  //   );
+  // } else {
+  //   await Firebase.initializeApp();
+  // }
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      title: 'Authenticaion',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.green,
+          brightness: Brightness.light,
+        ),
+        useMaterial3: true,
+      ),
+      home: LoginPage(),
+      initialRoute: '/login',
+       getPages: [
+       
+         GetPage(page: () => LoginPage(), name: '/login'),
+        // GetPage(page: () => ProfilePage(), name: 'profile'),
+        // GetPage(page: () => SignupPage(), name:'signup'),
+        // GetPage(page: () => ResetPasswordPage(), name:'reset_password'),
+        // GetPage(page: () => ChangePasswordPage(), name: 'change_password'),
+        // GetPage(page: () => LogoutPage(), name: 'logout'),
+        // GetPage(page: () => SplashPage(), name:'splash'),
+        // GetPage(page: () => ForgotPasswordPage(), name: 'forgot_password'),
+        // GetPage(page: () => VerifyEmailPage(), name:'verify_email'),
+        // GetPage(page: () => TermsAndConditionsPage(), name: 'terms_and_
+      ], 
+    );
+  }
+}
