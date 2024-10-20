@@ -13,17 +13,17 @@ class _Admin_LotesState extends State<Admin_Lotes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    bottomNavigationBar: BotonNavi(),
-     body: SingleChildScrollView(
-      child: SafeArea(
-        child:Column(
-          children: [
-            Info(cargo: 'Admin',
-              Texto: 'Valor del kilo \$-------',)
-          ],
-        )
+      bottomNavigationBar: BotonNavi(),
+      appBar: AppBar(title: Text('Lotes')),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            children: [
+              Info(Texto: 'Lotes', cargo: 'Admin')
+            ],
+          )
+          ),
       ),
-     ) 
     );
   }
 }

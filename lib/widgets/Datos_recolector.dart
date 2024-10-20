@@ -1,31 +1,72 @@
+import 'package:agrocaf/controllers/recolector_controller.dart';
+
+import 'package:agrocaf/pages/Apartados_Operador/Edicion_Operador_Admin.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import 'package:agrocaf/models/recolector_model.dart'; // Asegúrate de importar tu modelo
 
-class RecolectorTable extends StatelessWidget {
-  final List<Recolector> recolectores;
-
-  RecolectorTable({Key? key, required this.recolectores}) : super(key: key);
+class Tablarecolectores extends StatelessWidget {
+  Tablarecolectores({super.key});
+  final RecolectorController controller = Get.put(RecolectorController());
 
   @override
   Widget build(BuildContext context) {
-    return DataTable(
-      columns: [
-        DataColumn(label: Text('Cédula')),
-        DataColumn(label: Text('Nombre')),
-        DataColumn(label: Text('Teléfono')),
-        DataColumn(label: Text('Método de Pago')),
-        DataColumn(label: Text('Número de Cuenta')),
-      ],
-      rows: recolectores.map((recolector) {
-        return DataRow(cells: [
-          DataCell(Text(recolector.cedula)),
-          DataCell(Text(recolector.nombre)),
-          DataCell(Text(recolector.telefono)),
-          DataCell(Text(recolector.metodopago)),
-          DataCell(Text(recolector.ncuenta)),
-        ]);
-      }).toList(),
+    return Container(
+      child: Column(
+        children: [
+         
+          // Resto de tu código para la tabla
+          Obx(() {
+            if (controller.isLoading.value) {
+              return Center(child: CircularProgressIndicator());
+            } else if (controller.filteredRecolectores.isEmpty) {
+              return Center(child: Text('No hay recolectores para mostrar.'));
+            }
+            return SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                columns: [
+                  DataColumn(label: Text('Cédula')),
+                  DataColumn(label: Text('Nombre del Recolector')),
+                  DataColumn(label: Text('Teléfono')),
+                  DataColumn(label: Text('Método de Pago')),
+                  DataColumn(label: Text('Número de Cuenta')),
+                  DataColumn(label: Text('Acciones')),
+                ],
+                rows: controller.filteredRecolectores.map((recolector) {
+                  return DataRow(
+                    cells: [
+                      DataCell(Text(recolector.cedula)),
+                      DataCell(Text(recolector.nombre)),
+                      DataCell(Text(recolector.telefono)),
+                      DataCell(Text(recolector.metodopago)),
+                      DataCell(Text(recolector.ncuenta)),
+                      DataCell(
+                        Row(
+                          children: [
+                            IconButton(
+                              icon: Image.asset('images/edit.png'),
+                              onPressed: () {
+                                Get.to(() => EditRecolectorPage(recolector: recolector));
+                              },
+                            ),
+                            IconButton(
+                              icon: Image.asset('images/delete.png'),
+                              onPressed: () {
+                                controller.deleteRecolector(recolector.cedula);
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
+                }).toList(),
+              ),
+            );
+          }),
+        ],
+      ),
     );
   }
 }

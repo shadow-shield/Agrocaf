@@ -63,6 +63,9 @@ class _PagosState extends State<Pagos> {
                                         ruta:'/apartado_recole' ,
                                         imagen: 'images/Reco.png',
                                         texto: 'Recolectores'),
+                                        SizedBox(
+                                        width:
+                                            16),
                                     // Espacio de 16 píxeles entre el primer y el segundo botón
                                     Container_Button_PagoState(ruta: '/apartado_pesadas',
                                         imagen: 'images/Pesa.png',

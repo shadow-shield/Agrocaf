@@ -12,18 +12,18 @@ class Admin_Kilo extends StatefulWidget {
 class _Admin_KiloState extends State<Admin_Kilo> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-    bottomNavigationBar: BotonNavi(),
-     body: SingleChildScrollView(
-      child: SafeArea(
-        child:Column(
-          children: [
-            Info(cargo: 'Admin',
-              Texto: 'Valor del kilo \$-------',)
-          ],
-        )
+    return  Scaffold(
+      bottomNavigationBar: BotonNavi(),
+      appBar: AppBar(title: Text('Pesadas')),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            children: [
+              Info(Texto: 'Kilo', cargo: 'Admin')
+            ],
+          )
+          ),
       ),
-     ) 
     );
   }
 }

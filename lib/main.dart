@@ -56,13 +56,13 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       getPages: [
         GetPage(page: () => LoginPage(), name: '/'),
-        GetPage(page: () => const Apartado_Operador(), name: '/apartado_ope'),
-        GetPage(page: () => const Admin_Abonos(), name: '/apartado_abono'),
-        GetPage(page: () => const Admin_Kilo(), name: '/apartado_kilo'),
-        GetPage(page: () => const Admin_Lotes(), name: '/apartado_lotes'),
-        GetPage(page: () => const Admin_Pesadas(), name: '/apartado_pesadas'),
+        GetPage(page: () =>  Apartado_Operador(), name: '/apartado_ope'),
+        GetPage(page: () =>  Admin_Abonos(), name: '/apartado_abono'),
+        GetPage(page: () =>  Admin_Kilo(), name: '/apartado_kilo'),
+        GetPage(page: () =>  Admin_Lotes(), name: '/apartado_lotes'),
+        GetPage(page: () =>  Admin_Pesadas(), name: '/apartado_pesadas'),
         GetPage(
-            page: () => const Admin_recolec(),
+            page: () =>  RecolectoresPage(),
             name: '/apartado_recole'), 
         GetPage(
             page: () => const Admin_Reportes(),
