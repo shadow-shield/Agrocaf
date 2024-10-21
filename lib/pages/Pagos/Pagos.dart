@@ -3,6 +3,7 @@ import 'package:agrocaf/informacion/info.dart';
 import 'package:agrocaf/widgets/Botones_Pagos.dart';
 import 'package:agrocaf/widgets/BottonNavigator.dart';
 
+import 'package:agrocaf/widgets/Tablas/Datos_Tablapezadas.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,7 +31,8 @@ class _PagosState extends State<Pagos> {
         child: SafeArea(
             child: Column(
           children: [
-            Info(cargo: 'Admin',
+            Info(
+              cargo: 'Admin',
               Texto: 'Valor del kilo \$-------',
             ),
             SizedBox(
@@ -39,8 +41,12 @@ class _PagosState extends State<Pagos> {
             Column(
               children: [
                 Padding(
-                  padding:  EdgeInsets.only(right: 260),
-                  child: Text('APARTADOS',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
+                  padding: EdgeInsets.only(right: 260),
+                  child: Text(
+                    'APARTADOS',
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
+                  ),
                 ),
                 Container(
                   padding: EdgeInsets.all(20),
@@ -60,21 +66,20 @@ class _PagosState extends State<Pagos> {
                                       .center, // Opcional: centrar el contenido en el Row
                                   children: const [
                                     Container_Button_PagoState(
-                                        ruta:'/apartado_recole' ,
+                                        ruta: '/apartado_recole',
                                         imagen: 'images/Reco.png',
                                         texto: 'Recolectores'),
-                                        SizedBox(
-                                        width:
-                                            16),
+                                    SizedBox(width: 16),
                                     // Espacio de 16 píxeles entre el primer y el segundo botón
-                                    Container_Button_PagoState(ruta: '/apartado_pesadas',
+                                    Container_Button_PagoState(
+                                        ruta: '/apartado_pesadas',
                                         imagen: 'images/Pesa.png',
                                         texto: 'Pesadas'),
                                     SizedBox(
                                         width:
                                             16), // Espacio de 16 píxeles entre el segundo y el tercer botón
                                     Container_Button_PagoState(
-                                      ruta: '/apartado_lotes',
+                                        ruta: '/apartado_lotes',
                                         imagen: 'images/Lotes.png',
                                         texto: 'Lotes'),
                                   ],
@@ -87,20 +92,21 @@ class _PagosState extends State<Pagos> {
                             child: Row(
                               children: [
                                 Container_Button_PagoState(
-                                  ruta: '/apartado_report',
+                                    ruta: '/apartado_report',
                                     imagen: 'images/Report.png',
                                     texto: 'Reportes'),
                                 SizedBox(
                                     width:
                                         16), // Espacio de 16 píxeles entre el segundo y el tercer botón
                                 Container_Button_PagoState(
-                                  ruta: '/apartado_kilo',
-                                    imagen: 'images/kilo.png', texto: 'Kilo'),
+                                    ruta: '/apartado_kilo',
+                                    imagen: 'images/kilo.png',
+                                    texto: 'Kilo'),
                                 SizedBox(
                                     width:
                                         13.5), // Espacio de 16 píxeles entre el segundo y el tercer botón
                                 Container_Button_PagoState(
-                                  ruta: '/apartado_abono',
+                                    ruta: '/apartado_abono',
                                     imagen: 'images/Abonos.png',
                                     texto: 'Abonos'),
                               ],
@@ -114,49 +120,15 @@ class _PagosState extends State<Pagos> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 260),
-                  child: Text('Pezadas'),
+                  child: Text('Pesadas',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),),
                 ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Container(
-                    width: 800,
-                    height: 300,
-                    child: Column(
-                      children: [
-                        DataTable(
-                          columns: [
-                            DataColumn(label: Text('Cédula')),
-                            DataColumn(label: Text('Nombre')),
-                            DataColumn(label: Text('Teléfono')),
-                            DataColumn(label: Text('Método de Pago')),
-                            DataColumn(label: Text('Número de Cuenta')),
-                          ],
-                          rows: [
-                            DataRow(
-                              cells: [
-                                DataCell(Text('12345678')),
-                                DataCell(Text('Juan Pérez')),
-                                DataCell(Text('5555555555')),
-                                DataCell(Text('Tarjeta de Crédito')),
-                                DataCell(Text('1234567890')),
-                              ],
-                            ),
-                            DataRow(
-                              cells: [
-                                DataCell(Text('87654321')),
-                                DataCell(Text('María Sánchez')),
-                                DataCell(Text('5555555555')),
-                                DataCell(Text('Transferencia')),
-                                DataCell(Text('9876543210')),
-                              ],
-                            ),
-                            
-                      ])
-                        
-                      ],
-                    ),
+                Container(
+                  width: 800,
+                  height: 330,
+                  child: Column(
+                    children: [TablaPezadas()],
                   ),
-                )
+                ),
               ],
             ),
           ],

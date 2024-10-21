@@ -1,6 +1,6 @@
 import 'package:agrocaf/controllers/recolector_controller.dart';
 
-import 'package:agrocaf/pages/Apartados_Operador/Edicion_Operador_Admin.dart';
+import 'package:agrocaf/pages/Apartados_admin/Recolectores/Edicion_Operador_Admin.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

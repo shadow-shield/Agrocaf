@@ -1,7 +1,7 @@
 import 'package:agrocaf/controllers/recolector_controller.dart';
 import 'package:agrocaf/informacion/info.dart';
 import 'package:agrocaf/widgets/BottonNavigator.dart';
-import 'package:agrocaf/widgets/Datos_recolector.dart';
+import 'package:agrocaf/widgets/Tablas/Datos_recolector.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

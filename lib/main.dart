@@ -1,9 +1,10 @@
-import 'package:agrocaf/Apartados_admin/Abonos.dart';
-import 'package:agrocaf/Apartados_admin/Klio.dart';
-import 'package:agrocaf/Apartados_admin/Lotes.dart';
-import 'package:agrocaf/Apartados_admin/Pesadas.dart';
-import 'package:agrocaf/Apartados_admin/Recolectores.dart';
-import 'package:agrocaf/Apartados_admin/Reportes.dart';
+import 'package:agrocaf/pages/Apartados_Operador/home_operador.dart';
+import 'package:agrocaf/pages/Apartados_admin/Abonos/Abonos.dart';
+import 'package:agrocaf/pages/Apartados_admin/Kilo/Klio.dart';
+import 'package:agrocaf/pages/Apartados_admin/Lotes/Lotes.dart';
+import 'package:agrocaf/pages/Apartados_admin/Pesadas/Pesadas.dart';
+import 'package:agrocaf/pages/Apartados_admin/Recolectores/Recolectores.dart';
+import 'package:agrocaf/pages/Apartados_admin/Reportes.dart';
 import 'package:agrocaf/firebase_options.dart';
 import 'package:agrocaf/pages/Apartados_Operador/Operador_Recolectores.dart';
 import 'package:agrocaf/pages/Login/login_page.dart';
@@ -55,6 +56,7 @@ class MyApp extends StatelessWidget {
       home: LoginPage(),
       initialRoute: '/',
       getPages: [
+        GetPage(page: () => HomePage(), name: '/home'),
         GetPage(page: () => LoginPage(), name: '/'),
         GetPage(page: () =>  Apartado_Operador(), name: '/apartado_ope'),
         GetPage(page: () =>  Admin_Abonos(), name: '/apartado_abono'),

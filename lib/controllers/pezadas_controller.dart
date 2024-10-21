@@ -83,10 +83,14 @@ class PezadaController extends GetxController {
   // Método para aplicar el filtro basado en el texto de búsqueda
   void applyFilter() {
     if (searchQuery.value.isEmpty) {
-      filteredPezadas.value = pezadas;
+      // Si no hay búsqueda, mostrar todos los ítems
+      filteredRecolectores.value = recolectores;
     } else {
-      filteredPezadas.value = pezadas.where((pezada) {
-        return pezada.recolectorCedula.contains(searchQuery.value);
+      // Filtrar los ítems según el texto de búsqueda
+      filteredRecolectores.value = recolectores.where((recolector) {
+        return recolector.nombre
+            .toLowerCase()
+            .contains(searchQuery.value.toLowerCase());
       }).toList();
     }
   }

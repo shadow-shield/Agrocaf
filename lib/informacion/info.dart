@@ -54,14 +54,18 @@ class _InfoState extends State<Info> {
               ],
             ),
             ClipRRect(
-              borderRadius: BorderRadius.circular(5.0),
+              borderRadius: BorderRadius.circular(8.0),
               child: Container(
-                color: Color.fromRGBO(252, 252, 252, 1),
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                child: Row(
-                  children: [
-                    Text(valorDelKilo),
-                  ],
+                height: 50,
+                width: 300,
+                color: Colors.white,
+                
+                child: Align(
+                  alignment: Alignment.center, // Alineación centrada
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(valorDelKilo,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey,fontSize: 20),),
+                  ),
                 ),
               ),
             ),

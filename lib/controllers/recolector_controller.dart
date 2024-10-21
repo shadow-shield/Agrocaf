@@ -1,6 +1,7 @@
 import 'dart:io'; // Para manejar archivos
 import 'package:agrocaf/models/recolector_model.dart';
 import 'package:agrocaf/services/recolector_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -95,17 +96,19 @@ class RecolectorController extends GetxController {
 
   // Método para aplicar el filtro basado en el texto de búsqueda
   void applyFilter() {
-    // Puedes reemplazar esto con la lógica para filtrar por método de pago
-    if (selectedPaymentMethod.value.isEmpty) {
-      // Si no hay método de pago seleccionado, mostrar todos los recolectores
+    if (searchQuery.value.isEmpty) {
+      // Si no hay búsqueda, mostrar todos los ítems
       filteredRecolectores.value = recolectores;
     } else {
-      // Filtrar los recolectores según el método de pago seleccionado
+      // Filtrar los ítems según el texto de búsqueda
       filteredRecolectores.value = recolectores.where((recolector) {
-        return recolector.metodopago == selectedPaymentMethod.value; // Filtra por método de pago
+        return recolector.nombre
+            .toLowerCase()
+            .contains(searchQuery.value.toLowerCase());
       }).toList();
     }
   }
+  
 
   // Método para actualizar el texto de búsqueda
   void updateSearchQuery(String query) {
@@ -122,6 +125,19 @@ class RecolectorController extends GetxController {
       return null;
     }
   }
+  
+  //Metodo para actualizar datos del recolector por su cedula
+  Future<void> updateRecolectorField(String recolectorCedula, String field, dynamic newValue) async {
+  try {
+    // Referencia al recolector basado en la cédula
+    var recolectorDoc = FirebaseFirestore.instance.collection('recolectores').doc(recolectorCedula);
+
+    // Actualizar el campo específico
+    await recolectorDoc.update({field: newValue});
+  } catch (e) {
+    throw Exception('Error al actualizar el recolector: $e');
+  }
+}
 
   // Método para generar el archivo Excel
   Future<void> generateExcel() async {

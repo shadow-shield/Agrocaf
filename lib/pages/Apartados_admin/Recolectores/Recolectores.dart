@@ -1,12 +1,12 @@
 import 'package:agrocaf/informacion/info.dart';
-import 'package:agrocaf/pages/Apartados_Operador/Agregar_Recolector.dart';
+import 'package:agrocaf/pages/Apartados_admin/Recolectores/Agregar_Recolector.dart';
 import 'package:agrocaf/widgets/BottonNavigator.dart';
 
-import 'package:agrocaf/widgets/Datos_recolector.dart';
+import 'package:agrocaf/widgets/Tablas/Datos_recolector.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/recolector_controller.dart'; // Asegúrate de importar el controlador
+import '../../../controllers/recolector_controller.dart'; // Asegúrate de importar el controlador
 
 class RecolectoresPage extends StatelessWidget {
   final RecolectorController controller = Get.put(RecolectorController());
@@ -49,12 +49,14 @@ class RecolectoresPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
+                  
                     decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.search),
                       labelText: 'Buscar por nombre',
                       border: OutlineInputBorder(),
                     ),
                     onChanged: (value) {
-                      controller.updateSearchQuery(value); // Actualiza la búsqueda
+                      controller.updateSearchQuery(value);
                     },
                   ),
                 ),

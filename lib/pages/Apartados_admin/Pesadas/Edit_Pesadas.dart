@@ -1,23 +1,18 @@
-/* 
-import 'package:agrocaf/controllers/pezadas_controller.dart';
-
 import 'package:agrocaf/models/pezadas_model.dart';
 import 'package:agrocaf/widgets/BottonNavigator.dart'; // Widget para la barra de navegación
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class EditPezadaPage extends StatelessWidget {
   final Pezada pezada;
 
   EditPezadaPage({super.key, required this.pezada});
 
-  final PezadaController controller = Get.find();
-
   final TextEditingController idController = TextEditingController();
   final TextEditingController pesoController = TextEditingController();
   final TextEditingController calidadController = TextEditingController();
   final TextEditingController fechaController = TextEditingController();
-  final TextEditingController recolectorCedulaController = TextEditingController();
+  final TextEditingController recolectorCedulaController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,25 +29,36 @@ class EditPezadaPage extends StatelessWidget {
               child: Column(
                 children: [
                   TextField(
-                    controller: idController..text = pezada.id, // Rellenar con el valor actual
+                    controller: idController
+                      ..text = pezada.id, // Rellenar con el valor actual
                     decoration: InputDecoration(labelText: 'ID Pezada'),
                   ),
                   TextField(
-                    controller: pesoController..text = pezada.peso.toString(), // Rellenar con el valor actual
+                    controller: pesoController
+                      ..text = pezada.peso
+                          .toString(), // Rellenar con el valor actual
                     decoration: InputDecoration(labelText: 'Peso'),
-                    keyboardType: TextInputType.number, // Para ingresar valores numéricos
+                    keyboardType:
+                        TextInputType.number, // Para ingresar valores numéricos
                   ),
                   TextField(
-                    controller: calidadController..text = pezada.calidad, // Rellenar con el valor actual
+                    controller: calidadController
+                      ..text = pezada.calidad, // Rellenar con el valor actual
                     decoration: InputDecoration(labelText: 'Calidad'),
                   ),
                   TextField(
-                    controller: fechaController..text = pezada.fecha.toLocal().toString(), // Rellenar con el valor actual
+                    controller: fechaController
+                      ..text = pezada.fecha
+                          .toLocal()
+                          .toString(), // Rellenar con el valor actual
                     decoration: InputDecoration(labelText: 'Fecha'),
                   ),
                   TextField(
-                    controller: recolectorCedulaController..text = pezada.recolectorCedula, // Rellenar con el valor actual
-                    decoration: InputDecoration(labelText: 'Cédula del Recolector'),
+                    controller: recolectorCedulaController
+                      ..text = pezada
+                          .recolectorCedula, // Rellenar con el valor actual
+                    decoration:
+                        InputDecoration(labelText: 'Cédula del Recolector'),
                   ),
                   SizedBox(height: 40),
                   SingleChildScrollView(
@@ -67,15 +73,7 @@ class EditPezadaPage extends StatelessWidget {
                               foregroundColor: Colors.white,
                               backgroundColor: Colors.green, // Color del texto
                             ),
-                            onPressed: () {
-                              controller.saveNewPezada(
-                                idController.text,
-                                DateTime.parse(pesoController.text),
-                                double.parse(calidadController.text),
-                                
-
-                              );
-                            },
+                            onPressed: () {},
                             icon: Icon(Icons.add),
                             label: Text('Agregar'),
                           ),
@@ -87,8 +85,7 @@ class EditPezadaPage extends StatelessWidget {
                             ),
                             onPressed: () {
                               // Lógica para eliminar la Pezada actual
-                              controller.deletePezada(pezada.id);
-                              Get.back(); // Cierra la pantalla de edición después de eliminar
+                              // Cierra la pantalla de edición después de eliminar
                             },
                             icon: Icon(Icons.delete),
                             label: Text('Eliminar'),
@@ -101,14 +98,7 @@ class EditPezadaPage extends StatelessWidget {
                             ),
                             onPressed: () {
                               // Actualizar la Pezada
-                              controller.updatePezada(Pezada(
-                                id: idController.text,
-                                peso: double.parse(pesoController.text),
-                                calidad: calidadController.text,
-                                fecha: DateTime.parse(fechaController.text),
-                                recolectorCedula: recolectorCedulaController.text,
-                              ));
-                              Get.back(); // Cierra la pantalla de edición
+                              // Cierra la pantalla de edición
                             },
                             icon: Icon(Icons.edit),
                             label: Text('Editar'),
@@ -127,4 +117,3 @@ class EditPezadaPage extends StatelessWidget {
     );
   }
 }
- */

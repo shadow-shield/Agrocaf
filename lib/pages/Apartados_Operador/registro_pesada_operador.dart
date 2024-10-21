@@ -12,9 +12,7 @@ class RegistroPesadaOperador extends StatelessWidget {
     final RecolectorController _recolectorController = Get.find(); // Obtener el controlador de RecolectorController
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green[700],
-      ),
+      
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -37,7 +35,7 @@ class RegistroPesadaOperador extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        'Ingrese la pesada',
+                        'Ingrese pesada',
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 10),
@@ -76,9 +74,10 @@ class RegistroPesadaOperador extends StatelessWidget {
                   child: TextField(
                     controller: _searchController,
                     decoration: InputDecoration(
-                      labelText: 'Buscar por nombre',
+                      labelText: 'Buscar Recolector',
                       suffixIcon: Icon(Icons.search),
                       border: OutlineInputBorder(),
+                      hintText: 'Ingrese Nombre a Buscar'
                     ),
                     onChanged: (value) {
                       _recolectorController.updateSearchQuery(value); // Actualizar la búsqueda en el controlador
@@ -99,7 +98,7 @@ class RegistroPesadaOperador extends StatelessWidget {
                           title: Text(item.nombre),
                           subtitle: Text(item.cedula),
                           trailing: IconButton(
-                            icon: Icon(Icons.delete),
+                            icon: Image.asset('images/basura.png'),
                             onPressed: () => _recolectorController.deleteRecolector(item.cedula),
                           ),
                         );
